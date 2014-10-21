@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LiveChatAgentConfig xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignments>
+        <users>
+            <user>tanmay@gmail.com</user>
+        </users>
+    </assignments>
+    <autoGreeting>Welcome</autoGreeting>
+    <capacity>2</capacity>
+    <customAgentName>{!User_Alias}</customAgentName>
+    <enableAgentFileTransfer>false</enableAgentFileTransfer>
+    <enableAgentSneakPeek>false</enableAgentSneakPeek>
+    <enableAutoAwayOnDecline>false</enableAutoAwayOnDecline>
+    <enableChatConferencing>false</enableChatConferencing>
+    <enableChatMonitoring>true</enableChatMonitoring>
+    <enableChatTransfer>true</enableChatTransfer>
+    <enableLogoutSound>true</enableLogoutSound>
+    <enableNotifications>true</enableNotifications>
+    <enableRequestSound>true</enableRequestSound>
+    <enableSneakPeek>true</enableSneakPeek>
+    <enableWhisperMessage>true</enableWhisperMessage>
+    <label>Skill1Config</label>
+</LiveChatAgentConfig>

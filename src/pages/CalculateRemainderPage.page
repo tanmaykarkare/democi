@@ -1,0 +1,20 @@
+<apex:page id="page" title="Calculate Remainder" controller="CalculateRemainderController" sidebar="false" showHeader="false">
+    <apex:sectionHeader title="Adit's Home Work" subtitle="Calculate Remainder"/>
+    <apex:form >
+    <apex:pageBlock title="Numbers" tabStyle="Account">
+        <apex:pageBlockSection title="Number to be Divided" columns="1">
+            <apex:inputText id="number1" value="{!number1}" label="Number 1: "/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="Divisior" columns="1">
+            <apex:inputText id="number2" value="{!number2}" label="Number 2: "/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="Result" columns="2">
+            <apex:outputText id="quotient" value="{!quotient}" label="Quotient: "/>
+             <apex:outputText id="remainder" value="{!remainder}" label="Remainder: "/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="Calculate Now" columns="1">
+         	<apex:commandButton id="calcButton" action="{!goCalculate}" value="Calculate"/>   
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

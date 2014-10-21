@@ -1,0 +1,27 @@
+<apex:page title="My First Page" sidebar="false" showHeader="false" controller="AditsFirstController" >
+    <apex:sectionHeader subtitle="Experiment" title="My First Page"/>
+    <apex:form title="IQ Test">
+        <apex:pageBlock tabStyle="Account" mode="detail" title="IQ Test" >
+            
+            <apex:pageBlockSection title="Questions" columns="2" showHeader="true"	>
+                
+                <apex:repeat value="{!questions}" var="qa" id="therepeat">
+                    <apex:outputPanel >
+                        
+                            <apex:outputText value="{!qa.Question}"></apex:outputText>
+                            <apex:selectRadio value="{!qa.Answer}"  >
+                                <apex:selectOptions value="{!answerOptions}"/>
+                                
+                            </apex:selectRadio>
+                        
+                    </apex:outputPanel>
+                </apex:repeat>
+            </apex:pageBlockSection>	
+            <apex:pageBlockSection columns="2" title="Submit Answers">
+                <apex:commandButton value="Submit" action="{!submitAnswers}" />
+                
+                <apex:outputText value="{!result}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

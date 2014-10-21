@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LiveChatDeployment xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enablePrechatApi>false</enablePrechatApi>
+    <enableTranscriptSave>true</enableTranscriptSave>
+    <label>Deployment 1</label>
+    <windowTitle>Tanmay&apos;s Chat</windowTitle>
+</LiveChatDeployment>

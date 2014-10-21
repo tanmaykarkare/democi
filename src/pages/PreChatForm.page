@@ -1,0 +1,88 @@
+<apex:page showHeader="false" cache="false" expires="0" standardstylesheets="false" action="endpoint" controller="SupportPreChat" id="page"> 
+ 
+<head>
+<apex:includeScript value="{!URLFOR($Resource.jqueryValidation, 'lib/jquery-1.7.2.js')}"/>
+ 
+<apex:outputPanel id="prechatJS">
+  <script>
+    jQuery.noConflict();
+    jQuery(function(){
+        {!jsSubmitForm}           
+    });
+    </script>
+</apex:outputPanel>
+ 
+ 
+<style type="text/css"> 
+ 
+body {
+    text-align: left;
+}
+ 
+input.prechat {
+    width: 320px;
+    
+}
+ 
+</style> 
+</head>
+ 
+<body>
+ 
+<!--<table cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%; background-color:#0a5088;">
+    <tr>
+        <td align="left"><img src="{!$Resource.SupportChatSafariChatHeaderLeft}" /></td>
+        <td width="*">&nbsp;</td>
+        <td align="right"><img src="{!$Resource.SupportChatSafariChatHeaderRight}" /></td>
+    </tr>
+</table>-->
+<div style="padding: 5px;">
+ 
+<apex:form id="prechatFormInput"> 
+    First Name
+    <br/>    
+    <apex:inputField id="FirstName" value="{!theContact.FirstName}" required="true" styleClass="prechat"  />
+    <br /><br />
+    
+    Last Name
+    <br />
+    <apex:inputField id="LastName" value="{!theContact.LastName}" required="true" styleClass="prechat"  />
+    <br /><br /> 
+    
+    Username (Email Address)
+    <br />
+    <apex:inputField id="Email" value="{!theContact.Email}" required="true" styleClass="prechat"  />
+    <br /><br />
+ 
+    Subject
+    <br />
+    <apex:inputTextarea id="Subject" value="{!theContact.Description}" rows="4" cols="50" styleClass="prechat"/>    
+    <br />
+    <apex:commandButton reRender="prechatJS,prechatFormPanel,prechatFormInput" action="{!clickChat}" value="Request Chat" id="prechat_submit" />
+</apex:form>
+</div>
+ 
+<apex:outputPanel id="prechatFormPanel">
+    <form method='post' id='prechatForm' action="{!endpoint}">      
+        <input type="hidden" name='liveagent.prechat:FirstName' value="{!theContact.FirstName}"/>
+        <input type="hidden" name='liveagent.prechat:LastName' value="{!theContact.LastName}"/>
+        <input type="hidden" name='liveagent.prechat:Email' value="{!theContact.Email}"/>   
+        <input type="hidden" name='liveagent.prechat:Subject' value="{!theContact.Description}"/>
+        <input type="hidden" name='liveagent.prechat:CaseId' value="{!theCase.Id}"/>
+        
+        <input type="hidden" name="liveagent.prechat.query:Email" value="Contact,Contact.Email" />
+        <input type="hidden" name="liveagent.prechat.query:CaseId" value="Case,Case.Id" />
+        
+        <input type="hidden" name="liveagent.prechat.save:FirstName" value="FirstName__c" /> 
+        <input type="hidden" name="liveagent.prechat.save:LastName" value="LastName__c" /> 
+        <input type="hidden" name="liveagent.prechat.save:Email" value="Email__c" />     
+        <input type="hidden" name="liveagent.prechat.save:Subject" value="Subject__c" /> 
+        <input type="hidden" name="liveagent.prechat.save:CaseId" value="CaseId" /> 
+        
+        
+    </form> 
+</apex:outputPanel>
+ 
+</body>
+ 
+</apex:page>

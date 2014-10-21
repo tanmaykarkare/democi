@@ -1,0 +1,95 @@
+<apex:page sidebar="false" title="Customer Feedback" controller="CustomerFeedbackCls" showHeader="true">
+    <apex:form id="CustomerFeedback">
+        <apex:pageBlock id="MainPageBlock" mode="edit" >
+            <apex:pageMessages />
+            <apex:sectionHeader title="Customer Feedback"/>
+            <apex:pageBlockSection id="HotelDetail" collapsible="false" title="Booking Details" columns="1">
+                
+              
+                <apex:outputPanel style="padding-left:3.2cm;text-align:left;" >
+                    <apex:outputLabel style="font-weight:bold;" value="Hotel Name: "/>
+                    <apex:inputHidden value="{!accountId}" id="targetId" />
+                    <apex:inputText label="Hotel Name" required="true" size="40" value="{!accountName}" id="targetName" onFocus="this.blur()" disabled="false"/> <a href="#" onclick="openLookupPopup('{!$Component.targetName}', '{!$Component.targetId}'); return false">Lookup</a>
+                   </apex:outputPanel>             
+                   
+               
+               <apex:outputPanel style="padding-left:2.8cm;text-align:left;" >
+                    <apex:outputLabel style="font-weight:bold;" value="Check-In Date: "/>
+                    <apex:inputText required="true" id="CheckinDate" value="{!Customer.CheckIn_Date__c}" size="10" onfocus="DatePicker.pickDate(false, this , false);"/>
+               </apex:outputPanel>
+            </apex:pageBlockSection>
+            
+             <apex:pageblockSection id="CustomerDetail" collapsible="false" title="Customer Details" columns="1" >
+                 
+                <apex:outputPanel style="padding-left:3.25cm;text-align:left;" >
+                    <apex:outputLabel style="font-weight:bold;" value="First Name: "/>    
+                    <apex:inputText required="true" style="text-align:left" value="{!Customer.FirstName}" id="firstName"/>
+                </apex:outputPanel>
+                <apex:outputPanel style="padding-left:3.25cm;text-align:left;" >
+                    <apex:outputLabel style="font-weight:bold;" value="Last Name: "/>
+                    <apex:inputText required="true" value="{!Customer.LastName}" id="lastName"/>
+                </apex:outputPanel>
+                <apex:outputPanel style="padding-left:4.0cm;text-align:left;" >
+                    <apex:outputLabel style="font-weight:bold;" value="Email: "/>
+                    <apex:inputText required="true" id="Email" value="{!Customer.Email}"/>
+                </apex:outputPanel>
+
+             </apex:pageblockSection>
+             
+             <apex:pageblockSection id="Survey" collapsible="false" title="Survey Questions" columns="2" >
+                 
+                <apex:outputPanel style="text-align:left;" > 
+                 <apex:outputLabel style="font-weight:bold;" value="{!Que1}"/>
+                 <apex:selectRadio label="Question 1" required="true" value="{!FeedbackScore1}" >
+                     <apex:selectOptions value="{!items}"/>
+                     </apex:selectRadio><br/>
+                
+                 <apex:outputLabel style="text-align:left;font-weight:bold;" value="{!Que2}"/>
+                 <apex:selectRadio label="Question 2" required="true" value="{!FeedbackScore2}" >
+                     <apex:selectOptions value="{!items}"/>
+                     </apex:selectRadio><br/>
+              
+                 <apex:outputLabel style="font-weight:bold;" value="{!Que3}"/>
+                 <apex:selectRadio label="Question 3" required="true" value="{!FeedbackScore3}" >
+                     <apex:selectOptions value="{!items}"/>
+                     </apex:selectRadio><p/>
+                     
+                 <apex:outputLabel style="font-weight:bold;" value="{!Que4}"/>
+                 <apex:selectRadio label="Question 4" required="true" value="{!FeedbackScore4}" >
+                     <apex:selectOptions value="{!items}"/>
+                 </apex:selectRadio><p/>
+                 </apex:outputPanel>     
+                 
+             </apex:pageblockSection>
+             <apex:outputPanel layout="block" style="text-align:center">
+             <apex:commandButton value="Submit" action="{!SubmitFeedback}"/>
+             
+             </apex:outputPanel>
+        </apex:pageBlock>
+    </apex:form>
+    
+<script>
+ var newWin=null;
+ function openLookupPopup(name, id)
+ {
+  var url="/apex/Hotel_Lookup?namefield=" + name + "&idfield=" + id;
+  newWin=window.open(url, 'Popup','height=500,width=600,left=100,top=100,resizable=no,scrollbars=yes,toolbar=no,status=no');
+  if (window.focus) 
+  {
+   newWin.focus();
+  }
+    
+     return false;
+    }
+       
+ function closeLookupPopup()
+ {
+    if (null!=newWin)
+    {
+       newWin.close();
+    }  
+ }
+ 
+</script>
+
+</apex:page>

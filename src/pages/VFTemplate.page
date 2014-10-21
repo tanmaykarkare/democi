@@ -1,0 +1,45 @@
+<apex:page standardStylesheets="false" id="idTemplate" showHeader="false" sidebar="false">
+
+<style> 
+    .siteContainer{background-color: #FFFFFF;display: block;margin: 0 auto;width: 1007px;font-family: Verdana !important; font-size: 0.750em !important; color: #333333 !important;}
+    .body {background-color:#FFF !important;margin: 0px auto;}
+    .siteContainer .boxframe {border-radius: 10px;}
+    .siteContainer .bodyBox {margin: 0 25px;width: 958px;}
+    .siteContainer .topBox {margin: 0 25px 25px;width: 958px;position: relative;height: 325px;}
+    .siteContainer .topBox .tab {margin-left: 30px;}
+    .siteContainer .topBox .tab:first-child {margin-left: 0px;}
+    .siteContainer .topBox .topBoxTabs {position: absolute;bottom: 0px;}
+    .siteContainer .topBodyBox {background-color:#DBEDF7;border-radius: 10px;padding: 30px;display: table;width: 898px;margin-bottom: 25px;}
+    .siteContainer .leftBox {margin-right: 20px;  border-right:1px solid #003399;width: 407px;border-radius: 0px;width:590px;padding-right: 30px;}
+    .siteContainer .leftBox, .siteContainer .rightBox {float: left; min-height: 150px;}
+    .siteContainer .rightBox {width: 209px;}
+    
+    
+    .siteContainer .bottomBox {display: inline-block;margin-bottom: 25px;}
+    .siteContainer .bottomBoxLeft , .siteContainer .bottomBoxRight  {display: inline-block;width: 469px;float: left;}
+    .siteContainer .bottomBoxLeft {margin-right:20px;}
+    .siteContainer .bottomBoxLeft div, .siteContainer .bottomBoxRight div {padding: 5px;}
+    .siteContainer .bottomBoxLeft img, .siteContainer .bottomBoxRight img {float: left;margin-right: 20px;}
+    .siteContainer .rightBoxHeader {display: block;font-weight: 700;margin-bottom: 15px;}
+    .siteContainer .rightBoxBody {display: block;margin-bottom: 15px;}
+    .siteContainer .rightBoxContactUs {background-image:url('/Img1');background-repeat:no-repeat;min-height: 70px;}
+    .siteContainer .rightBoxContactUsBody {display: block;margin-bottom: 5px;padding-left: 90px;width:165px;}
+    .siteContainer h2 {font-weight:700;font-size: 1em; color: #003399;}
+    .siteContainer a {font-weight: 700; color: #003399;}
+    .siteContainer a img {border: none;}
+    .siteContainer .bottomBox a {color: #333333;}
+    .siteContainer .rightBoxContactUsAddress {margin-top: 30px;display: block;}
+</style>
+
+ <apex:outputPanel styleClass="siteContainer" id="siteContainer" layout="block">
+     
+        <apex:outputPanel styleClass="topBox" id="topBox" layout="block">
+            <h1><apex:image style="width:500px;" id="headerImage" title="My Site" value="/resource/1386755670000/SiteHeader"/></h1>
+
+        </apex:outputPanel>
+        
+     
+ </apex:outputPanel>
+
+
+</apex:page>

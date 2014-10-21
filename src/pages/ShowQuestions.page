@@ -1,0 +1,10 @@
+<apex:page sidebar="false" showHeader="false" controller="showQuestionsController" >
+    <apex:pageBlock title="Review" tabStyle="Review__c">
+        <apex:pageBlockSection title="Review Details" collapsible="true" showHeader="true">
+            <apex:outputText value="{!review.Name}"/>
+            <apex:outputText value="{!review.Contact__r.Name}"/>
+            <apex:outputText value="{!review.Question_Count__c}"/>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+  
+</apex:page>
